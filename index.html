@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Optima:wght@400&display=swap">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap"> 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/dist/fullpage.min.js"></script>
+
+    <style>
+	
+            font-family: "Inter", sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #2f2c2c;
+            color: #fff;
+        }
+
+        html *,
+        body * {
+            cursor: auto;
+        }
+
+        .section {
+            position: relative;
+            height: 100vh;
+            cursor: default; 
+        }
+
+        .section h1,
+        .section h2,
+        .section p,
+        .section .links,
+        .section h5,
+        .section li {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            margin: 0;
+        }
+
+        .section h1 {
+			font-family: 'Poppins', sans-serif; 
+			top: 20%;
+			left: 50%;
+			font-size: 8em;
+			font-weight: 800;
+			white-space: nowrap;
+			overflow: hidden;
+			border-right: 2px solid white;
+		}
+		
+		
+		.section2 p {
+			font-family: 'Rubik', sans-serif;
+			top: 100%; 
+			left: 50%;
+			width: 80%;
+			max-width: 32em;
+			line-height: 1.7;
+			font-weight: 300;
+			font-size: 1.2em; 
+		}
+		#section1 p {
+			font-family: 'Rubik', sans-serif;
+			top: 50%;
+			left: 50%;
+			width: 80%;
+			max-width: 32em;
+			line-height: 1.7;
+			font-weight: 300;
+			font-size: 5em; 
+		}
+        
+
+        .section h1.typed {
+            border-right: none;
+        }
+
+        .section h2 {
+			font-family: 'Optima', sans-serif; 
+			top: 30%;
+			left: 50%;
+			font-weight: 600;
+			font-size: 2.5em;
+    }
+		.section h2 span {
+			color: transparent; 
+			-webkit-text-stroke: 2px #fff; 
+			background-color: rgba(0, 0, 0, 0.5); 
+			padding: 0.5em; 
+			display: inline-block;
+    }
+
+        .section p {
+			font-family: 'Rubik', sans-serif; 
+			top: 50%;
+			left: 50%;
+			width: 80%;
+			max-width: 32em;
+			line-height: 1.7;
+			font-weight: 300;
+			font-size: 2em;
+		}
+
+        .section .links {
+            top: 50%;
+            left: 50%;
+        }
+
+        .section h5 {
+            top: 70%; 
+            left: 50%;
+            font-size: 1.5em;
+        }
+
+        .section h5.bottom-text {
+            position: absolute;
+            bottom: 90%; 
+            left: 50%;
+            font-size: 1.5em;
+        }
+
+        .section li {
+            top: 70%;
+            left: 50%;
+            font-size: 2em;
+            margin-bottom: 1em;
+            line-height: 4;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            font-size: 2em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+            transition: 0.5s ease;
+            font-size: 1.2em;
+        }
+
+        a:hover {
+            color: rgba(255, 255, 255, 0.5);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        p {
+            width: 80%;
+            max-width: 32em;
+            margin: 0 auto 1em;
+            line-height: 1.7;
+            font-weight: 300;
+            font-size: 1.2em;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            width: 3em;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 auto 1em;
+        }
+
+        h1+hr {
+            margin: 0 auto 2em;
+        }
+
+        .App {
+            position: relative;
+            z-index: 1;
+        }
+
+        #section3 ul,
+        #section4 ul,
+        #section5 ul {
+            margin-top: 3em;
+            line-height: 2;
+        }
+
+        .section .links a {
+            margin-right: 20px;
+        }
+
+        .section .links a:last-child {
+            margin-right: 0;
+        }
+
+        #menu {
+            position: fixed;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            transition: top 0.5s ease;
+        }
+
+        #menu.show {
+            top: 10px;
+        }
+
+       #menu a {
+			margin: 0 15px;
+			color: #fff;
+			text-decoration: none;
+			font-size: 1.2em;
+			font-weight: 600;
+			border: 2px solid #fff;
+			border-radius: 30px;
+			padding: 10px 20px;
+			transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+		}
+		h1, h2, p, .links, h5, li, a {
+			color: #FAF9F6; 
+		}
+
+		#menu a:hover {
+			background-color: #FAF9F6;
+			color: #0D0907; 
+			box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7;
+			animation: rainbowGlow 2s linear infinite;
+		}
+
+		@keyframes rainbowGlow {
+			0% { box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7; }
+			25% { box-shadow: 0 0 10px #fff, 0 0 20px #FF4081, 0 0 40px #03A9F4, 0 0 80px #673AB7, 0 0 160px #9C27B0; }
+			50% { box-shadow: 0 0 10px #fff, 0 0 20px #03A9F4, 0 0 40px #673AB7, 0 0 80px #9C27B0, 0 0 160px #FFEB3B; }
+			75% { box-shadow: 0 0 10px #fff, 0 0 20px #673AB7, 0 0 40px #9C27B0, 0 0 80px #FFEB3B, 0 0 160px #FF4081; }
+			100% { box-shadow: 0 0 10px #fff, 0 0 20px #9C27B0, 0 0 40px #FFEB3B, 0 0 80px #FF4081, 0 0 160px #03A9F4; }
+		}
+
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            cursor: pointer;
+        }
+
+        .play-pause-btn {
+			font-size: 18px;
+			color: #fff;
+			opacity: 0.4; 
+        }
+
+        /* Gradient animation background */
+        html, body {
+			width: 100%;
+			height:100%;
+		}
+
+		body {
+			background: linear-gradient(-45deg, #E4665C, #424F60, #003041, #F9B189);
+			background-size: 400% 400%;
+			animation: gradient 15s ease infinite;
+		}
+
+		@keyframes gradient {
+			0% {
+			background-position: 0% 50%;
+		}
+			50% {
+			background-position: 100% 50%;
+		}
+			100% {
+			background-position: 0% 50%;
+		}
+	}
+
+        /* Explore button */
+        .explore-button {
+    position: absolute;
+    top: 70%; 
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    display: inline-block;
+    margin-top: 10px; 
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #FAF9F6;
+    background: transparent;
+    border: 2px solid #FAF9F6;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-button:hover {
+    background-color: #FAF9F6;
+    color: #0D0907;
+    box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+	#section3 {
+    position: relative;
+}
+
+.education-image {
+    display: block;
+    margin: 9em auto 1em;
+    max-width: 100%;
+    height: auto;
+    max-height: 40vh; 
+}
+
+#section3 ul {
+    margin-top: 4em; 
+}
+
+#section3 h1,
+#section3 ul {
+    position: relative;
+    z-index: 1;
+}
+
+
+#section2 img {
+        display: block;
+        margin: 0 auto; 
+        max-width: 100%;
+        height: auto;
+        max-height: 25vh; 
+        position: relative;
+        top: 19.5em; 
+    }
+
+    #section2 p {
+        margin-top: 8em; 
+    }
+	
+	#sectionHUD {
+        position: fixed;
+        top: 50%;
+        right: 10px; 
+        transform: translateY(-50%);
+        z-index: 1000;
+    }
+
+    .hud-circle {
+        width: 12px;
+        height: 12px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        margin-bottom: 30px; 
+        transition: background-color 0.3s ease;
+        margin-right: 60px; 
+    }
+
+    .hud-circle.active {
+        background-color: #FAF9F6; 
+        box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7, 0 0 200px #FFEB3B; /* Adjust the box-shadow for a brighter effect */
+    }
+	
+	#section4 {
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+
+#section4 h1 {
+    top: 20%;
+    left: 50%;
+    font-weight: 600;
+}
+
+#section4 ul {
+    top: 70%;
+    left: 50%;
+    font-size: 1em;
+}
+
+#section4 video {
+            display: block;
+            margin: 0 auto; 
+            max-width: 30%; 
+            height: auto;
+            border: 4px solid #fff; 
+            position: absolute;
+            top: 50%; 
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #2f2c2c; /* Set the background color of the video container */
+            transition: box-shadow 0.3s ease; 
+        }
+
+        #section4 video:hover {
+            box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7; /* Glow effect on hover */
+        }
+		#section4 iframe {
+    width: 560px;
+    height: 315px;
+    border: 4px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2f2c2c;
+    transition: box-shadow 0.3s ease;
+}
+
+#section4 iframe:hover {
+    box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7;
+}
+#section2 img,
+#section3 .education-image,
+#section4 iframe {
+    transition: box-shadow 0.3s ease; 
+}
+
+#section2 img:hover,
+#section3 .education-image:hover,
+#section4 iframe:hover {
+    box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7;
+}
+#section5 li {
+    position: absolute;
+    bottom: 15%; 
+    left: 50%;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    line-height: 4;
+    transform: translateX(-50%);
+}
+.tiktok-embed-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.tiktok-embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.tiktok-embed {
+            background-color: transparent; 
+            max-width: 80%; 
+            margin: 0 auto; 
+        }
+
+		.custom-size {
+        max-width: 350px; 
+        min-width: 50px; 
+        width: 100%;
+        height: 700px; 
+    }
+	.custom-size iframe {
+        position: absolute;
+        top: 50%; 
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: scale(0.8); 
+        transform-origin: top center; 
+    }
+	.image-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.2);
+        }
+		#section6:hover .explore-button {
+    background-color: #FAF9F6;
+    color: #0D0907;
+    box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+#section2 img,
+#section3 .education-image,
+#section4 iframe {
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+#section2 img:hover,
+#section3 .education-image:hover,
+#section4 iframe:hover {
+    box-shadow: 0 0 10px #fff, 0 0 20px #FFEB3B, 0 0 40px #FF4081, 0 0 80px #03A9F4, 0 0 160px #673AB7;
+    transform: scale(1.2);
+}
+#section6 .email-link:hover {
+    color: #3367d6;
+    box-shadow: 0 0 10px rgba(51, 103, 214, 0.8);
+}
+
+</style>
+    </style>
+</head>
+
+<body>
+    <div id="menu">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#skills">My Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div id="fullpage">
+        
+        <div class="section" id="section1">
+            <h1 id="welcomeHeading"></h1>
+            <h2>Hi!, I am Justin Manalo</h2>
+            <p>Welcome to my Personal Website</p>
+        
+           
+            <div class="explore-button" onclick="scrollToAbout()">
+                Explore
+            </div>
+        </div>
+        <div class="section" id="section2">
+            <h1>About Me</h1>
+			<img class="about-image" src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t39.30808-6/367397601_757632019450209_5585966696293264166_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=9c7eae&_nc_ohc=G2ryKzoHCFwAX-irZbW&_nc_ht=scontent.fmnl9-2.fna&oh=00_AfCVqlmeBDZpWHPHypyn3SSyca7DV4r0fgJlhBTZnaIypQ&oe=65D05419" alt="About Me Image">
+            <p>"My Name is Justin, 18 years of Age. I graduated from University of Southern Philippines, also known as USPF. and now I am currently enrolled in CIT-U. for me I Always do what's Interesting in life, and now I'm currently making my personal website which is fun and interesting for me."</p>
+        </div>
+        <div class="section" id="section3">
+            <h1>Education</h1>
+			<img src="https://od.lk/s/NTdfODk1MDY4ODRf/423105930_389375690407481_1029116829062160062_n.jpg" alt="Education Image" class="education-image">
+            <ul>
+                <li>TVL - ICT . From University of Southern Philippines</li>
+            </ul>
+        </div>
+        <div class="section" id="section4">
+    <h1>My Skills</h1>
+    <ul>
+        <li>Videography and Video Editing</li>
+    </ul>
+
+    
+    <video controls id="videoElement">
+        <source src="https://od.lk/s/NTdfODk1MDcxOTJf/New%20Project%207.mp4" type="video/mp4">
+    </video>
+
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/U5CiUoclHlI?si=cypPQ4g7XhfNYJHd"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen style="display: block; margin: 0 auto; width: 560px; height: 315px; border: 4px solid #fff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #2f2c2c; transition: box-shadow 0.3s ease;"></iframe>
+
+
+</div>
+        <div class="section" id="section5">
+            <h1>Projects</h1>
+            <ul>
+                <li>My Custom PC</li>
+            </ul>
+
+            
+           <blockquote class="tiktok-embed custom-size" cite="https://www.tiktok.com/@jb_jstn/video/7334670280926776582"
+    data-video-id="7334670280926776582">
+    <section>
+        <a target="_blank" title="@jb_jstn" href="https://www.tiktok.com/@jb_jstn?refer=embed">@jb_jstn</a> 🤍
+        <a title="nzxt" target="_blank" href="https://www.tiktok.com/tag/nzxt?refer=embed">#NZXT</a>
+        <a title="iamironman" target="_blank" href="https://www.tiktok.com/tag/iamironman?refer=embed">#Iamironman</a>
+        <a title="white" target="_blank" href="https://www.tiktok.com/tag/white?refer=embed">#white</a>
+        <a title="setup" target="_blank" href="https://www.tiktok.com/tag/setup?refer=embed">#setup</a>
+        <a title="gigabyte" target="_blank" href="https://www.tiktok.com/tag/gigabyte?refer=embed">#gigabyte</a>
+        <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp?refer=embed">#fyp</a>
+        <a target="_blank" title="♬ original sound - Jstn"
+            href="https://www.tiktok.com/music/original-sound-7334670301525576453?refer=embed">♬ original sound - Jstn</a>
+    </section>
+</blockquote>
+<script async src="https://www.tiktok.com/embed.js"></script>
+        </div>
+        <div class="section" id="section6">
+            <h1>Contact</h1>
+            <p>You can reach out to me at <a href="mailto:justinebenedict.manalo@cit.edu">My Email - justinebenedict.manalo@cit.edu</a>.</p>
+        </div>
+    </div>
+
+   
+    <div class="audio-controls">
+        <i class="play-pause-btn fas fa-play" onclick="toggleAudio()"></i>
+        <i class="play-pause-btn fas fa-pause" onclick="toggleAudio()" style="display: none;"></i>
+        <audio controls id="audioElement" autoplay>
+            <source src="https://od.lk/s/NTdfODk0OTUyOTVf/Domestic%20Bliss%20No.%201.mp3" type="audio/mp3">
+        </audio>
+    </div>
+	
+	<div id="sectionHUD">
+        <div class="hud-circle"></div>
+        <div class="hud-circle"></div>
+        <div class="hud-circle"></div>
+        <div class="hud-circle"></div>
+        <div class="hud-circle"></div>
+        <div class="hud-circle"></div>
+    </div>
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var menu = document.getElementById('menu');
+        var welcomeText = document.getElementById('welcomeHeading');
+        var welcomeString = "Welcome!";
+        var index = 0;
+
+        function typeWelcomeText() {
+            if (index < welcomeString.length) {
+                welcomeText.innerHTML += welcomeString.charAt(index);
+                index++;
+                setTimeout(typeWelcomeText, 150);
+            } else {
+                welcomeText.classList.add('typed');
+            }
+        }
+
+        typeWelcomeText();
+
+        
+        var audio = document.getElementById('audioElement');
+        audio.controls = false;
+
+        createSectionHUD(); 
+
+        new fullpage('#fullpage', {
+            anchors: ['home', 'about', 'education', 'skills', 'projects', 'contact'],
+            menu: '#menu',
+            sectionSelector: '.section',
+            afterLoad: function (origin, destination, direction) {
+                updateSectionHUD(destination.index);
+                if (destination.index == 0) {
+                    menu.classList.remove('show');
+                    welcomeText.classList.remove('typed');
+                    welcomeText.innerHTML = "";
+                    index = 0;
+                    typeWelcomeText();
+                } else {
+                    menu.classList.add('show');
+                }
+            },
+            onLeave: function (origin, destination, direction) {
+                if (destination.index == 0) {
+                    menu.classList.remove('show');
+                } else {
+                    menu.classList.add('show');
+                }
+            }
+        });
+
+        menu.classList.add('show');
+    });
+
+    function createSectionHUD() {
+        var hudContainer = document.createElement('div');
+        hudContainer.id = 'sectionHUD'; 
+        hudContainer.classList.add('hud-container');
+
+        
+        for (var i = 0; i < 6; i++) {
+            var hudCircle = document.createElement('div');
+            hudCircle.classList.add('hud-circle');
+            hudContainer.appendChild(hudCircle);
+        }
+
+        
+        document.body.appendChild(hudContainer);
+    }
+
+    function updateSectionHUD(index) {
+        document.querySelectorAll('.hud-circle').forEach(circle => {
+            circle.classList.remove('active');
+        });
+
+        document.querySelectorAll('.hud-circle')[index].classList.add('active');
+    }
+
+    function scrollToAbout() {
+        fullpage_api.moveTo(2); 
+        playAudio(); 
+    }
+
+    
+    function playAudio() {
+        var audio = document.getElementById('audioElement');
+        
+        
+        if (audio.paused) {
+            audio.play();
+        }
+    }
+</script>
+</body>
+</body>
+</html>
